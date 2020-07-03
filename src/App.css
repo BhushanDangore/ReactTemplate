@@ -1,3 +1,86 @@
+body, html, #root {
+    height: 100%;
+    /* overflow: hidden; */
+}
+
+:root {
+    --app-bar-height: 95px;
+    --drawer-width: 280px;
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    text-align: center;
+    transform-origin: 100% 100%;
+    transform: scale(1);
+    transition: transform .3s ease;
+    position: relative;
+}
+
+.main-area {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #141b23;
+    color: wheat;
+    z-index: 100;
+}
+
+.AppBar {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 100%;
+    z-index: -1;
+    height: var(--app-bar-height);
+    box-sizing: border-box;
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(42, 12, 73);
+    color: linen;
+}
+
+.Drawer {
+    position: absolute;
+    top: var(--app-bar-height);
+    top: calc(0px - var(--app-bar-height));
+    bottom: 0;
+    right: 100%;
+    box-sizing: border-box;
+    width: var(--drawer-width);
+    z-index: -1;
+    padding: 60px 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(67, 17, 117);
+    color: linen;
+}
+
+#toggle {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: seagreen;
+    z-index: 200;
+}
+
+#toggle h2 {
+    margin: 7px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+#toggle:hover + .App {
+    transform: scale(.87);
 }
